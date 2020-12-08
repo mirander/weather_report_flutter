@@ -1,0 +1,8 @@
+{
+    "appTitle": "Прогноз погоды",
+    "download": "Загрузка приложения...",
+    "test" : "Вы нажали на экран раза:",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    }
+}
