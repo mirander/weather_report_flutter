@@ -1,6 +1,9 @@
 {
     "appTitle": "Прогноз погоды",
     "download": "Загрузка приложения...",
+    "filterDay": "По дням",
+    "filterHours": "По часам",
+
     "test" : "Вы нажали на экран раза:",
     "@helloWorld": {
       "description": "The conventional newborn programmer greeting"

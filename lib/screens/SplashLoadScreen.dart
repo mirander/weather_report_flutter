@@ -14,17 +14,18 @@ class _SplashLoadScreenState extends State<SplashLoadScreen> {
   @override
   Widget build(BuildContext context) {
     return new SplashScreen(
-      seconds: 5,
+      seconds: 4,
       navigateAfterSeconds: new HomeScreen(),
       title: Text(
         FlutterI18n.translate(context, "appTitle"),
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 20.0,
+          fontSize: 28.0,
+          color: Colors.red[400],
         ),
       ),
       image: Image.asset(
-        "assets/images/start-logo.jpg",
+        "assets/images/sun-icon-animation.gif",
       ),
       photoSize: 100.0,
       backgroundColor: Colors.white,
