@@ -1,7 +1,5 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
-import 'package:state_test/models/CurrentWeather.dart';
+import 'package:flutter/material.dart';
 import 'package:state_test/models/ListWeather.dart';
 import 'package:state_test/models/Weather.dart';
 import 'package:state_test/requests/WheatherRequest.dart';

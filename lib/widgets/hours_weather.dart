@@ -5,9 +5,9 @@ import 'package:state_test/models/Weather.dart';
 import 'package:state_test/providers/WeatherProvider.dart';
 import 'package:state_test/widgets/card_weather.dart';
 
-class WheatherHours extends StatelessWidget {
+class WeatherHours extends StatelessWidget {
   final int index;
-  const WheatherHours({Key key, this.index}) : super(key: key);
+  const WeatherHours({Key key, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
