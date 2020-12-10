@@ -5,7 +5,7 @@ import 'package:state_test/models/Weather.dart';
 import 'package:state_test/requests/WheatherRequest.dart';
 
 class WeatherProvider with ChangeNotifier {
-  ListWeather listWeather;
+  ListWeatherModel listWeather;
   String errorMessage;
   bool _loading = true;
 
@@ -13,7 +13,7 @@ class WeatherProvider with ChangeNotifier {
     if (isLoading()) {
       await WheatherRequest(cord).fetchWeather().then((data) {
         if (data.statusCode == 200) {
-          setWheather(ListWeather.listPrepare(json.decode(data.body)));
+          setWheather(ListWeatherModel.listPrepare(json.decode(data.body)));
         } else {
           Map<String, dynamic> result = json.decode(data.body);
           setMessage(result['message']);
@@ -26,9 +26,9 @@ class WeatherProvider with ChangeNotifier {
 
   bool isWeather() => listWeather != null ? true : false;
 
-  ListWeather getWheather() => listWeather;
+  ListWeatherModel getWheather() => listWeather;
 
-  Weather getCurrentWeather() => getWheather().listWheather.first;
+  WeatherModel getCurrentWeather() => getWheather().listWheather.first;
 
   void setWheather(value) {
     listWeather = value;

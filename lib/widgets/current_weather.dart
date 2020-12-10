@@ -9,7 +9,7 @@ class CurrentWeather extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Weather weather;
+    WeatherModel weather;
     final curWeather = Provider.of<WeatherProvider>(context, listen: false);
 
     if (curWeather.isWeather()) weather = curWeather.getCurrentWeather();

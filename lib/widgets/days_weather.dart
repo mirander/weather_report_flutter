@@ -13,7 +13,8 @@ class WeatherDays extends StatelessWidget {
   Widget build(BuildContext context) {
     final weatherProvider =
         Provider.of<WeatherProvider>(context, listen: false);
-    final Weather weather = weatherProvider.listWeather.listWheather[index];
+    final WeatherModel weather =
+        weatherProvider.listWeather.listWheather[index];
 
     DateTime dateTime =
         DateTime.fromMillisecondsSinceEpoch(weather.intDate * 1000);

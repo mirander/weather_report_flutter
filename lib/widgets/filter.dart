@@ -30,17 +30,16 @@ class Filter extends StatelessWidget {
             child: Text(
               FlutterI18n.translate(context, "filterDay"),
             ),
-            value: Settings.BY_DAYS,
+            value: SettingsModel.BY_DAYS,
           ),
           DropdownMenuItem(
             child: Text(
               FlutterI18n.translate(context, "filterHours"),
             ),
-            value: Settings.BY_HOURS,
+            value: SettingsModel.BY_HOURS,
           ),
         ],
         onChanged: (String value) {
-          print(value);
           setProvider.setSettings(value);
         },
       ),

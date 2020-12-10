@@ -1,11 +1,11 @@
-class Weather {
+class WeatherModel {
   int intDate;
   String description;
-  double temp;
+  int temp;
   String textDate;
   String cityName;
 
-  Weather({
+  WeatherModel({
     this.intDate,
     this.description,
     this.temp,

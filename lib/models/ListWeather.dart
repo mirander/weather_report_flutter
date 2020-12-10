@@ -1,19 +1,21 @@
 import 'package:state_test/models/Weather.dart';
 
-class ListWeather {
-  List<Weather> listWheather;
+class ListWeatherModel {
+  List<WeatherModel> listWheather;
 
-  ListWeather({this.listWheather});
+  ListWeatherModel({this.listWheather});
 
-  ListWeather.listPrepare(Map<String, dynamic> body) {
-    listWheather = new List<Weather>();
+  ListWeatherModel.listPrepare(Map<String, dynamic> body) {
+    listWheather = new List<WeatherModel>();
     List<dynamic> data = body['list'].toList();
 
     data.forEach((value) {
-      listWheather.add(Weather(
+      int temp = (value['main']['temp']).round();
+
+      listWheather.add(WeatherModel(
         intDate: value['dt'],
         description: value['weather'].toList()[0]['description'],
-        temp: value['main']['temp'],
+        temp: temp,
         textDate: value['dt_txt'],
         cityName: body['city']['name'],
       ));

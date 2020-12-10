@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:state_test/models/Weather.dart';
 
 class CardWeather extends StatelessWidget {
-  final Weather weather;
+  final WeatherModel weather;
   final String title;
   final String date;
   final String time;
