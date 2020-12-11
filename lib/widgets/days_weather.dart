@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
 import 'package:state_test/models/Weather.dart';
 import 'package:state_test/providers/WeatherProvider.dart';
 import 'package:state_test/widgets/card_weather.dart';
@@ -16,17 +15,12 @@ class WeatherDays extends StatelessWidget {
     final WeatherModel weather =
         weatherProvider.listWeather.listWheather[index];
 
-    DateTime dateTime =
-        DateTime.fromMillisecondsSinceEpoch(weather.intDate * 1000);
-    String time = DateFormat("HH:mm").format(dateTime);
-    String date = DateFormat.MMMEd().format(dateTime);
-
-    if (time.contains("15:00"))
+    if (weather.nextDay)
       return CardWeather(
-        title: date,
+        title: weather.date,
         weather: weather,
-        date: date,
-        time: time,
+        date: weather.date,
+        time: weather.time,
       );
     else
       return SizedBox();

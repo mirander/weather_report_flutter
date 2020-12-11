@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:provider/provider.dart';
+import 'package:state_test/providers/SettingsProvider.dart';
 import 'package:state_test/providers/WeatherProvider.dart';
 import 'package:state_test/widgets/current_weather.dart';
 import 'package:state_test/widgets/filter.dart';
@@ -12,9 +13,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final weather = Provider.of<WeatherProvider>(context);
-    Future.delayed(Duration.zero, () async {
-      weather.fetchWeather("lat=49.988358&lon=36.232845");
-    });
+    final settings = Provider.of<SettingsProvider>(context);
+
+    if (weather.isLoading()) {
+      Future.delayed(Duration.zero, () {
+        weather.fetchWeather(settings.locLat, settings.locLong);
+      });
+    }
 
     return SafeArea(
       child: Scaffold(

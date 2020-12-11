@@ -9,17 +9,15 @@ class WeatherProvider with ChangeNotifier {
   String errorMessage;
   bool _loading = true;
 
-  Future<bool> fetchWeather(String cord) async {
-    if (isLoading()) {
-      await WheatherRequest(cord).fetchWeather().then((data) {
-        if (data.statusCode == 200) {
-          setWheather(ListWeatherModel.listPrepare(json.decode(data.body)));
-        } else {
-          Map<String, dynamic> result = json.decode(data.body);
-          setMessage(result['message']);
-        }
-      });
-    }
+  Future<bool> fetchWeather(String lat, String long) async {
+    await WheatherRequest(lat, long).fetchWeather().then((data) {
+      if (data.statusCode == 200) {
+        setWheather(ListWeatherModel.listPrepare(json.decode(data.body)));
+      } else {
+        Map<String, dynamic> result = json.decode(data.body);
+        setMessage(result['message']);
+      }
+    });
     _setLoading(false);
     return isWeather();
   }

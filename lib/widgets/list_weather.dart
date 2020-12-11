@@ -60,10 +60,11 @@ class WeatherList extends StatelessWidget {
             shrinkWrap: true,
             itemCount: list.length,
             itemBuilder: (context, index) {
-              if (settings.filter.contains(SettingsModel.BY_DAYS))
+              if (settings.filter.contains(SettingsModel.BY_DAYS)) {
                 return WeatherDays(index: index);
-              else
+              } else {
                 return WeatherHours(index: index);
+              }
             })
         : CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation(Colors.red[400]),

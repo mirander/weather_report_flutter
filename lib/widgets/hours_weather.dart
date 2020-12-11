@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
 import 'package:state_test/models/Weather.dart';
 import 'package:state_test/providers/WeatherProvider.dart';
 import 'package:state_test/widgets/card_weather.dart';
@@ -16,31 +15,25 @@ class WeatherHours extends StatelessWidget {
     final WeatherModel weather =
         weatherProvider.listWeather.listWheather[index];
 
-    DateTime dateTime =
-        DateTime.fromMillisecondsSinceEpoch(weather.intDate * 1000);
-    String time = DateFormat("HH:mm").format(dateTime);
-    String date = DateFormat.MMMEd().format(dateTime);
-
     CardWeather card = CardWeather(
-      title: time,
+      title: weather.time,
       weather: weather,
-      date: date,
-      time: time,
+      date: weather.date,
+      time: weather.time,
     );
 
-    if (time.contains("00:00")) {
+    if (weather.nextDay)
       return Column(
         children: [
           Container(
             margin: const EdgeInsets.only(top: 20.0),
             alignment: Alignment.centerLeft,
-            child: Text("$date", style: TextStyle(fontSize: 18.0)),
+            child: Text("${weather.date}", style: TextStyle(fontSize: 18.0)),
           ),
           card,
         ],
       );
-    } else {
+    else
       return card;
-    }
   }
 }
