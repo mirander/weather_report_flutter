@@ -1,5 +1,5 @@
-import 'package:state_test/models/Settings.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_report/models/Settings.dart';
 
 class SettingsProvider with ChangeNotifier {
   String _filter = SettingsModel.BY_DAYS;

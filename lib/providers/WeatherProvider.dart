@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:state_test/components/Cache.dart';
-import 'package:state_test/models/ListWeather.dart';
-import 'package:state_test/models/Weather.dart';
-import 'package:state_test/requests/WheatherRequest.dart';
+import 'package:weather_report/components/Cache.dart';
+import 'package:weather_report/models/ListWeather.dart';
+import 'package:weather_report/models/Weather.dart';
+import 'package:weather_report/requests/WheatherRequest.dart';
 
 class WeatherProvider with ChangeNotifier {
   ListWeatherModel listWeather;

@@ -1,5 +1,5 @@
-import 'package:state_test/models/Weather.dart';
 import 'package:intl/intl.dart';
+import 'package:weather_report/models/Weather.dart';
 
 class ListWeatherModel {
   List<WeatherModel> listWheather;

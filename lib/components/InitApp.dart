@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:state_test/components/Geolocation.dart';
-import 'package:state_test/providers/SettingsProvider.dart';
-import 'package:state_test/providers/WeatherProvider.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:weather_report/components/Geolocation.dart';
+import 'package:weather_report/providers/SettingsProvider.dart';
+import 'package:weather_report/providers/WeatherProvider.dart';
 
 class InitApp {
   bool initApp = false;

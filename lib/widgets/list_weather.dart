@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:state_test/models/Settings.dart';
-import 'package:state_test/models/Weather.dart';
-import 'package:state_test/providers/SettingsProvider.dart';
-import 'package:state_test/providers/WeatherProvider.dart';
-import 'package:state_test/widgets/hours_weather.dart';
+import 'package:weather_report/models/Settings.dart';
+import 'package:weather_report/models/Weather.dart';
+import 'package:weather_report/providers/SettingsProvider.dart';
+import 'package:weather_report/providers/WeatherProvider.dart';
+import 'package:weather_report/widgets/hours_weather.dart';
 import 'days_weather.dart';
 
 class WeatherList extends StatelessWidget {

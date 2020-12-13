@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n_delegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:state_test/providers/SettingsProvider.dart';
-import 'package:state_test/providers/WeatherProvider.dart';
-import 'package:state_test/screens/SplashLoadScreen.dart';
+import 'package:weather_report/providers/SettingsProvider.dart';
+import 'package:weather_report/providers/WeatherProvider.dart';
+import 'package:weather_report/screens/SplashLoadScreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:state_test/models/Weather.dart';
-import 'package:state_test/providers/WeatherProvider.dart';
-import 'package:state_test/widgets/card_weather.dart';
+import 'package:weather_report/models/Weather.dart';
+import 'package:weather_report/providers/WeatherProvider.dart';
+import 'package:weather_report/widgets/card_weather.dart';
 
 class WeatherDays extends StatelessWidget {
   final int index;

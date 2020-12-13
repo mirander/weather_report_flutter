@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:provider/provider.dart';
-import 'package:state_test/components/InitApp.dart';
-import 'package:state_test/providers/WeatherProvider.dart';
-import 'package:state_test/widgets/current_weather.dart';
-import 'package:state_test/widgets/filter.dart';
-import 'package:state_test/widgets/list_weather.dart';
+import 'package:weather_report/components/InitApp.dart';
+import 'package:weather_report/providers/WeatherProvider.dart';
+import 'package:weather_report/widgets/current_weather.dart';
+import 'package:weather_report/widgets/filter.dart';
+import 'package:weather_report/widgets/list_weather.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
