@@ -2,5 +2,6 @@
     "appTitle": "Прогноз погоды",
     "noInternetConnection": "Нет интернет соединения.",
     "filterDay": "По дням",
-    "filterHours": "По часам"
+    "filterHours": "По часам",
+    "noSaveData": "Нет сохраненных данных"
 }

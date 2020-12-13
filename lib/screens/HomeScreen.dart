@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:provider/provider.dart';
+import 'package:state_test/components/InitApp.dart';
 import 'package:state_test/providers/WeatherProvider.dart';
 import 'package:state_test/widgets/current_weather.dart';
 import 'package:state_test/widgets/filter.dart';
@@ -11,27 +12,28 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final weather = Provider.of<WeatherProvider>(context, listen: false);
-
+    InitApp(context);
+    final weather = Provider.of<WeatherProvider>(context);
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red[400],
-          title: Text(FlutterI18n.translate(context, "appTitle")),
-          actions: [Filter()],
-        ),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(5.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              CurrentWeather(),
-              SizedBox(height: 50),
-              WeatherList(),
-            ],
+          appBar: AppBar(
+            backgroundColor: Colors.red[400],
+            title: Text(FlutterI18n.translate(context, "appTitle")),
+            actions: [Filter()],
           ),
-        ),
-      ),
+          body: (!weather.getSavedData())
+              ? SingleChildScrollView(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      CurrentWeather(),
+                      SizedBox(height: 50),
+                      WeatherList(),
+                    ],
+                  ),
+                )
+              : _noDataApp(context)),
     );
   }
 
@@ -50,6 +52,13 @@ class HomeScreen extends StatelessWidget {
             FlutterI18n.translate(context, "noInternetConnection"),
             style: TextStyle(
               fontSize: 21.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            FlutterI18n.translate(context, "noSaveData"),
+            style: TextStyle(
+              fontSize: 18.0,
               fontWeight: FontWeight.bold,
             ),
           ),

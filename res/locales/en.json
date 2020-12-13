@@ -2,5 +2,6 @@
     "appTitle": "Weather Report",
     "noInternetConnection": "No internet connection.",
     "filterDay": "By days",
-    "filterHours": "By hours"
+    "filterHours": "By hours",
+    "noSaveData": "No saved data."
 }

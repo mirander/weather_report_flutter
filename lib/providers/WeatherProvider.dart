@@ -9,12 +9,13 @@ class WeatherProvider with ChangeNotifier {
   ListWeatherModel listWeather;
   String errorMessage;
   bool _loading = true;
+  bool _noSavedData = false;
 
   Future<bool> fetchWeather(String lat, String long, String lang) async {
     await WheatherRequest(lat, long, lang).fetchWeather().then((data) {
       if (data.statusCode == 200) {
         setWheather(ListWeatherModel.listPrepare(json.decode(data.body)));
-        HiveWeather().setWheather(data.body);
+        HiveWeather().setWeather(data.body);
       } else {
         Map<String, dynamic> result = json.decode(data.body);
         setMessage(result['message']);
@@ -25,8 +26,12 @@ class WeatherProvider with ChangeNotifier {
   }
 
   Future<bool> fetchWeatherOffline() async {
-    String jSon = await HiveWeather().getWheather();
-    setWheather(ListWeatherModel.listPrepare(json.decode(jSon)));
+    String jSon = await HiveWeather().getWeather();
+    if (jSon != null) {
+      setWheather(ListWeatherModel.listPrepare(json.decode(jSon)));
+    } else {
+      _noSavedData = true;
+    }
     _setLoading(false);
     return isWeather();
   }
@@ -34,6 +39,7 @@ class WeatherProvider with ChangeNotifier {
   bool isWeather() => listWeather != null ? true : false;
   ListWeatherModel getWheather() => listWeather;
   WeatherModel getCurrentWeather() => getWheather().listWheather.first;
+  bool getSavedData() => _noSavedData;
 
   void setWheather(value) {
     listWeather = value;

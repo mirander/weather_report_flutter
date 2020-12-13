@@ -1,7 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:state_test/components/Geolocation.dart';
 import 'package:state_test/providers/SettingsProvider.dart';
 import 'package:state_test/providers/WeatherProvider.dart';
 import 'package:connectivity/connectivity.dart';
@@ -16,7 +16,8 @@ class InitApp {
 
     _isInternet().then((value) {
       if (value) {
-        if (weather.isLoading()) {
+        _isLocate(settings);
+        if (weather.isLoading() && settings.isLocateSet()) {
           weather.fetchWeather(
             settings.locLat,
             settings.locLong,
@@ -35,5 +36,19 @@ class InitApp {
       return false;
     else
       return true;
+  }
+
+  void _isLocate(SettingsProvider settings) {
+    if (!settings.isLocateSet()) {
+      try {
+        Geolocation.determinePosition().then((value) {
+          settings.setLocation(value.longitude, value.latitude);
+        }).catchError((e) {
+          settings.setLocation(30.527756, 50.434341);
+        });
+      } on Exception catch (_) {
+        print("Something wrong...");
+      }
+    }
   }
 }

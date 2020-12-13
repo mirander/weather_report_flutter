@@ -14,7 +14,7 @@ class _SplashLoadScreenState extends State<SplashLoadScreen> {
   @override
   Widget build(BuildContext context) {
     return new SplashScreen(
-      seconds: 2,
+      seconds: 4,
       navigateAfterSeconds: new HomeScreen(),
       title: Text(
         FlutterI18n.translate(context, "appTitle"),

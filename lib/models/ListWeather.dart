@@ -1,4 +1,3 @@
-import 'package:state_test/components/Cache.dart';
 import 'package:state_test/models/Weather.dart';
 import 'package:intl/intl.dart';
 
