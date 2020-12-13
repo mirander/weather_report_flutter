@@ -1,4 +1,4 @@
-# Weaher report
+# Weather report
 
 A new test Flutter project.
 
