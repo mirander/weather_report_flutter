@@ -7,10 +7,11 @@ class WheatherRequest {
 
   String lat;
   String long;
+  String lang;
   final String url = "https://api.openweathermap.org/data/2.5/";
   final String token = "&appid=624a9a1570a103dc9ffbd7331003b20d";
 
-  WheatherRequest(this.lat, this.long);
+  WheatherRequest(this.lat, this.long, this.lang);
 
   Future<http.Response> fetchWeather() => http.get(url +
       "forecast?lat=" +
@@ -19,5 +20,7 @@ class WheatherRequest {
       long +
       "&token=" +
       token +
-      "&units=metric&lang=ru&cnt=30");
+      "&lang=" +
+      lang +
+      "&units=metric&cnt=30");
 }

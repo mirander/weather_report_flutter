@@ -29,16 +29,7 @@ class CardWeather extends StatelessWidget {
             "${weather.temp}°",
             style: TextStyle(fontSize: 22.0),
           ),
-          leading: Container(
-            width: 32.0,
-            height: 32.0,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: ExactAssetImage("assets/images/sun.jpg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          leading: Image.network("${weather.icon}"),
         ),
       ),
     );

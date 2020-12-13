@@ -1,3 +1,4 @@
+import 'package:state_test/components/Cache.dart';
 import 'package:state_test/models/Weather.dart';
 import 'package:intl/intl.dart';
 
@@ -18,6 +19,10 @@ class ListWeatherModel {
           DateTime.fromMillisecondsSinceEpoch(value['dt'] * 1000);
       String date = DateFormat.MMMEd().format(dateTime);
 
+      String icon = "http://openweathermap.org/img/w/" +
+          value['weather'].toList()[0]['icon'] +
+          ".png";
+
       listWheather.add(
         WeatherModel(
           nextDay: (oldDate != date) ? true : false,
@@ -28,6 +33,7 @@ class ListWeatherModel {
           cityName: body['city']['name'],
           date: date,
           time: DateFormat("HH:mm").format(dateTime),
+          icon: icon,
         ),
       );
       oldDate = date;

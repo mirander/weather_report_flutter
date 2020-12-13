@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:provider/provider.dart';
-import 'package:state_test/providers/SettingsProvider.dart';
 import 'package:state_test/providers/WeatherProvider.dart';
 import 'package:state_test/widgets/current_weather.dart';
 import 'package:state_test/widgets/filter.dart';
@@ -12,14 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final weather = Provider.of<WeatherProvider>(context);
-    final settings = Provider.of<SettingsProvider>(context);
-
-    if (weather.isLoading()) {
-      Future.delayed(Duration.zero, () {
-        weather.fetchWeather(settings.locLat, settings.locLong);
-      });
-    }
+    final weather = Provider.of<WeatherProvider>(context, listen: false);
 
     return SafeArea(
       child: Scaffold(
@@ -39,6 +31,29 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _noDataApp(BuildContext context) {
+    return Align(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(
+            "assets/images/wifi.png",
+            width: 150,
+            height: 140,
+          ),
+          Text(
+            FlutterI18n.translate(context, "noInternetConnection"),
+            style: TextStyle(
+              fontSize: 21.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }

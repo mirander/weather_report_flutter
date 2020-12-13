@@ -1,10 +1,6 @@
 {
     "appTitle": "Weather Report",
-    "download": "Download App...",
+    "noInternetConnection": "No internet connection.",
     "filterDay": "By days",
-    "filterHours": "By hours",
-    "test" : "You have pushed the button this many times:",
-    "@helloWorld": {
-      "description": "The conventional newborn programmer greeting"
-    }
+    "filterHours": "By hours"
 }

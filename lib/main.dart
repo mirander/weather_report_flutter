@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n_delegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:state_test/components/InitApp.dart';
 import 'package:state_test/providers/SettingsProvider.dart';
 import 'package:state_test/providers/WeatherProvider.dart';
 import 'package:state_test/screens/SplashLoadScreen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
     MultiProvider(
       providers: [
@@ -19,9 +22,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    InitApp(context);
     return MaterialApp(
       localizationsDelegates: [
         FlutterI18nDelegate(
